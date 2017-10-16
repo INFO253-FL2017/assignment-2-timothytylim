@@ -7,7 +7,13 @@ function validateForm() {
         document.getElementById("mess").innerHTML = "Do not leave any fields empty! All required.";
         return false;
     } else {
-    	document.getElementById("mess").innerHTML = "Submitted!!!";
+        var xhttp = new XMLHttpRequest();
+		xhttp.open("POST","/f",true);
+		s = xhttp.send('{"name":"' + x + '","subject":"' + y + '","msg":"' + z + '"}')
+		z.value = "";
+		y.value = "";
+        document.getElementById("mess").innerHTML = "Hi " + x + ", your message has been sent!";
+        x.value = "";
     }
 }
 

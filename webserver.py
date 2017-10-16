@@ -27,3 +27,20 @@ def to_contact():
 @app.route('/blog/<article>')
 def render_article(article=None):
 	return render_template(article + '.html')
+
+USER = environ['INFO253_MAILGUN_USER']
+PASS = environ['INFO253_MAILGUN_PASSWORD']
+FROM = environ['INFO253_MAILGUN_FROM_EMAIL']
+TO = environ['INFO253_MAILGUN_TO_EMAIL']
+DOMAIN = environ['INFO253_MAILGUN_DOMAIN']
+@app.route('/f',methods=['POST'])
+def post_form():
+  data = json.loads(request.data.decode('ascii'))
+  r = requests.post(
+    "https://api.mailgun.net/v3/"+DOMAIN+"/messages",
+    auth = (USER,PASS),
+    data = {"from": data['name'] + " " + FROM,
+    'to': TO,
+    'subject': data['subject'],
+    'text': data['msg']})
+  return(' ',204)
