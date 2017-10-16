@@ -1,14 +1,77 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Assignment 2</title>
-		<meta charset="utf-8" />
-		<link rel="stylesheet" href="/static/css/style.css" />
+		<meta charset="utf-8"><title>Assignment 1</title>
+		<link rel="stylesheet" href="/static/css/style.css">
 	</head>
 	<body>
-		<h1>Hello World</h1>
+		<header>
+			<ul>
+				<li>
+					<a href="/index">home</a>
+				</li>
+				<li>
+					<a href="/about">about us</a>
+				</li>
+				<li>
+					<a href="/contact">contact</a>
+				</li>
+			</ul>
+		</header>
 
-		<script src="/static/js/script.js"></script>
+		<h1>My first assignment: Blog posts</h1>
 
+		<ul class="blog-posts">
+			<li class="blog-item">
+				<a  href="{{ url_for('render_article',article='8-experiments-in-motivation') }}">
+					<div class="title-hover">
+						<h1>8 Experiments in Motivation</h1>
+					</div>
+				</a>
+			</li>
+			<li class="blog-item">
+				<a  href="{{ url_for('render_article',article='a-mindful-shift-of-focus') }}">
+					<div class="title-hover">
+						<h1>A Mindful Shift of Focus</h1>
+					</div>
+				</a>
+			</li>
+			<li class="blog-item">
+				<a  href="{{ url_for('render_article',article='how-to-develop-an-awesome-sense-of-direction')}}">
+					<div class="title-hover">
+						<h1>How to Develop an Awesome Sense of Direction</h1>
+					</div>
+				</a>
+			</li>
+			<li class="blog-item">
+				<a  href="{{ url_for('render_article',article='training-to-be-a-good-writer')}}">
+					<div class="title-hover">
+						<h1>Training to Be a Good Writer</h1>
+					</div>
+				</a>
+			</li>
+			<li class="blog-item">
+				<a  href="{{ url_for('render_article',article='what-productivity-systems-wont-solve')}}">
+					<div class="title-hover">
+						<h1>What Productivity Systems Won't Solve</h1>
+					</div>
+				</a>
+			</li>
+		</ul>
+
+		<footer>
+			<ul>
+				<li>
+					<a href="/index">home</a>
+				</li>
+				<li>
+					<a href="/about">about us</a>
+				</li>
+				<li>
+					<a href="/contact">contact</a>
+				</li>
+			</ul>
+		</footer>
 	</body>
-</html>		
+</html>
+	
